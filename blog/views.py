@@ -5,5 +5,6 @@ from .models import Post
 # Create your views here.
 
 def post_list(request):
+	#guarda en la variable posts lo que pide de la bae de datos (querysets)
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
